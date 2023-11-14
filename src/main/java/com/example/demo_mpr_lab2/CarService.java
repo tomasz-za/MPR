@@ -20,13 +20,17 @@ public class CarService {
     }
 
     public void addCarToRepository(Car car) {
-        repository.save(car);
+        if(repository.findByName(car.getName()) != null) {
+            throw new CarAlreadyExistsException();
+        } else {
+
+        }
     }
 
     public void updateCarByName(String name, Car updatedCar) {
         Car existingCar = repository.findByName(name);
 
-        if (existingCar != null) {
+        if (existingCar != null) {   
             existingCar.setName(updatedCar.getName());
             existingCar.setColor(updatedCar.getColor());
 

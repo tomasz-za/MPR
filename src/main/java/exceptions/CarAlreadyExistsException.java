@@ -1,4 +1,4 @@
-package com.example.demo_mpr_lab2;
+package exceptions;
 
 public class CarAlreadyExistsException extends RuntimeException{
 }

@@ -24,6 +24,7 @@ public class CarController {
         return service.displayCarRepository() ;
 }
 
+
 @PostMapping("Car/add")
     public void addCarToRepository(@RequestBody Car car){
         this.service.addCarToRepository(car);

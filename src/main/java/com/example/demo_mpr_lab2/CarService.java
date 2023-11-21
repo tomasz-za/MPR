@@ -1,5 +1,6 @@
 package com.example.demo_mpr_lab2;
 
+import exceptions.CarAlreadyExistsException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,11 +24,13 @@ public class CarService {
         if(repository.findByName(car.getName()) != null) {
             throw new CarAlreadyExistsException();
         } else {
-
+            repository.save(car);
         }
     }
 
     public void updateCarByName(String name, Car updatedCar) {
+
+
         Car existingCar = repository.findByName(name);
 
         if (existingCar != null) {   
@@ -55,9 +58,8 @@ public class CarService {
 
 
 
-/**
+
     public Car findByName(String name){
 
         return this.repository.findByName(name);
     }
-   **/
